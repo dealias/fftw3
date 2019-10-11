@@ -138,6 +138,16 @@ void *X(kernel_malloc)(size_t n)
      return p;
 }
 
+// Return the memory alignment used by FFTW
+size_t fftw_alignment()
+{
+#ifdef MIN_ALIGNMENT
+     return MIN_ALIGNMENT;
+#else
+     return 0;
+#endif
+}
+
 void X(kernel_free)(void *p)
 {
      real_free(p);
